@@ -32,8 +32,9 @@ namespace Assignment_Calculator
                             break;
 
                     case "/": //Division
-                            //make a 'if' to remove 0 from division to prevent a endless loop
+                            //
                               double ResponseDivision = RunDivisionMethod();
+
                             Console.WriteLine("The answer is: " + ResponseDivision);
                         break;
 
@@ -122,6 +123,11 @@ namespace Assignment_Calculator
             double RunDivisionMethod = numberOne / numberTwo;
 
             return RunDivisionMethod;
+
+
+            //double RunDivisionMethod = numberOne / numberTwo;
+
+            //return RunDivisionMethod;
         }
     }
 
