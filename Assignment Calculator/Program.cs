@@ -17,12 +17,18 @@ namespace Assignment_Calculator
                     switch (Operator)
                     {
                         case "+": //Additive
+                            // <Summary> //
+                            //Takes first and second numbers here, adds them together, 
+                            //then sends them down to the RunAdditiveMethod Method.
+                            Console.Write("\n" + "Enter first number here: ");
+                            double numberOne = double.Parse(Console.ReadLine() ?? "");
 
-                            RunAdditiveMethod();
-                            double ResponseAdditive = RunAdditiveMethod();
+                            Console.Write("\n" + "Enter the next number here: ");
+                            double numberTwo = double.Parse(Console.ReadLine() ?? "");
 
-                            Console.WriteLine("The answer is: " + ResponseAdditive);
-                            //
+                            double Answer = numberOne + numberTwo;
+
+                            RunAdditiveMethod(Answer);
                             break;
 
                         case "-": //Subtraction
@@ -48,12 +54,6 @@ namespace Assignment_Calculator
 
                             Console.WriteLine("The answer is: " + ResponseDivision);
                             break;
-
-                        //case "%": //Percentage
-                        //          double ResponsePercentage = RunPercentageMethod();
-
-                        //        Console.WriteLine("The answer is: " + ResponsePercentage +"%");
-                        //    break;
 
                         case "x":
                             stayAlive = false;
@@ -84,36 +84,28 @@ namespace Assignment_Calculator
                 }
             }
         }
-        private static double RunAdditiveMethod()
+        private static void RunAdditiveMethod(double Answer)
         {
-            Console.Write("\n" + "Enter first number here: ");
-            double numberOne = double.Parse(Console.ReadLine() ?? "");
 
-            Console.Write("\n" + "Enter the next number here: ");
-            double numberTwo = double.Parse(Console.ReadLine() ?? "");
-
-            double Answer = numberOne + numberTwo;
-            double RunAdditiveMethod = Answer;
-
-            Console.Write("\n" + "Would you like to add more numbers? y/n: ");
+            Console.Write("\n" + "The answer is: " + Answer  + ", Would you like to add more numbers? y/n: ");
             string Operator = (Console.ReadLine() ?? "");
             switch (Operator)
             {
-                case "y":
-                    if (Operator == "y")
-                        RunAdditiveMethodLoop(Answer);
-                    break;
-
                 case "n":
                     if (Operator == "n")
-                        return RunAdditiveMethod;
+                    {
+                        Console.Clear();
+                        return;
+                    }
                     break;
-
-
+                case "y":
+                    RunAdditiveMethodLoop(Answer);
+                    break;
+                default:
+                    break;
             }
-            return RunAdditiveMethod;
+            return;
             }
-
 
         private static double RunAdditiveMethodLoop(double Answer)
         {
@@ -121,12 +113,16 @@ namespace Assignment_Calculator
             int i = 0;
             do
             {
+                double previousAnswer = Answer;
+
                 Console.Write("\n" + "Enter the next number here: ");
                 double numberTwo = double.Parse(Console.ReadLine() ?? "");
 
+                Console.Clear();
+
                 Answer = Answer + numberTwo;
 
-                Console.Write("\n" + "The Answer is: " + Answer + " Want to add more numbers? y/n: ");
+                Console.Write("\n" + previousAnswer + " + " + numberTwo + " = " + Answer + " Want to add more numbers? y/n: ");
                 string Operator = (Console.ReadLine() ?? "");
 
                 if (Operator == "n")
@@ -140,16 +136,6 @@ namespace Assignment_Calculator
                 return RunAdditionMethod;
                 
             }
-
-
-
-            //Console.Write("\n" + "Enter the next number here: ");
-            //double numberThree = double.Parse(Console.ReadLine() ?? "");
-
-            //double Answer1 = numberThree;
-
-            //double RunAdditiveMethodLoop = Answer + Answer1;
-            //return RunAdditiveMethodLoop;
         }
 
 
@@ -208,24 +194,5 @@ namespace Assignment_Calculator
                 return RunDivisionMethod;
             }
         }
-
-
-        //private static double RunPercentageMethod()
-        //{
-        //    Console.Write("\n" + "Enter first number here: ");
-        //    double numberOne = double.Parse(Console.ReadLine() ?? "");
-
-        //    Console.Write("\n" + "Enter the next number here: ");
-        //    double numberTwo = double.Parse(Console.ReadLine() ?? "");
-
-        //    double Percentage = numberOne - numberTwo;
-        //    //double RunPercentageMethod = (double)(Percentage / (double)numberOne) * 100;
-
-        //    //double RunPercentageMethod = (numberTwo / numberOne) * 100;
-        //    double RunPercentageMethod = (double)(numberTwo / (double)numberOne) * 100;
-
-        //    return RunPercentageMethod;
-        //}
     }
-
 }
