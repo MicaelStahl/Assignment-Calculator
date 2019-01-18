@@ -16,7 +16,7 @@ namespace Assignment_Calculator
                             //This command asks for specific commands and will then use the 
                             //given command through the switch to it's own method that handles the request.
 
-                    Console.Write("Enter the operator here  (+, -, *, /, % or x to exit): ");
+                    Console.Write("Enter the operator here  (+, -, *, / or x to exit): ");
                     string Operator = (Console.ReadLine() ?? "");
 
                     switch (Operator)
@@ -114,7 +114,7 @@ namespace Assignment_Calculator
         }
         private static void RunAdditionMethod(double addAnswer)
         {
-            //This Method indicates the start of the loop if you wish for it.
+            //This Method indicates the start of the loop if you wish for it with a switch.
             Console.Write("\n" + "The answer is: " + addAnswer  + ", Would you like to add more numbers? y/n: ");
             string Operator = (Console.ReadLine() ?? "");
             switch (Operator)
@@ -139,7 +139,7 @@ namespace Assignment_Calculator
             int i = 0;
             do
             {
-                //Makes the current answer from the current loop sequence into its own variable.
+                //Turns the current answer from the current loop sequence into its own variable.
                 double previousAddAnswer = addAnswer;
 
                 Console.Write("\nEnter the next number here: ");
@@ -154,7 +154,7 @@ namespace Assignment_Calculator
                 Console.Write("\n" + previousAddAnswer + " + " + addThree + " = " + addAnswer + " Want to add more numbers? y/n: ");
                 string Operator = (Console.ReadLine() ?? "");
 
-                //here we make i = 1 if the user presses "n" in previous Console.Write. This means that the loop will end.
+                //here we make i = 1. If the user presses "n" in previous Console.Write. This means that the loop will end.
                 if (Operator == "n")
                 {
                     i = 1;
@@ -171,7 +171,7 @@ namespace Assignment_Calculator
 
         private static void RunSubtractionMethod(double subAnswer)
         {
-            //This Method indicates the start of the loop if you wish for it.
+            //This Method indicates the start of the loop if you wish for it with a switch.
             Console.Write("\n" + "The answer is: " + subAnswer + " would you like to add more numbers? y/n ");
             string Operator = (Console.ReadLine() ?? "");
             switch (Operator)
@@ -194,7 +194,7 @@ namespace Assignment_Calculator
 
             do
             {
-                //Makes the current answer from the current loop sequence into its own variable.
+                //Turns the current answer from the current loop sequence into its own variable.
                 double previousSubAnswer = subAnswer;
 
                 Console.Write("\nEnter the next number here: ");
@@ -229,12 +229,12 @@ namespace Assignment_Calculator
                 //This Method performs a simple Multiplication equation and 
                 //then sends it back to the Main Method.
             Console.Write("\n" + "Enter first number here: ");
-            double numberOne = double.Parse(Console.ReadLine() ?? "");
+            double multiOne = double.Parse(Console.ReadLine() ?? "");
 
             Console.Write("\n" + "Enter the next number here: ");
-            double numberTwo = double.Parse(Console.ReadLine() ?? "");
+            double multiTwo = double.Parse(Console.ReadLine() ?? "");
 
-            double RunMultiplicationMethod = numberOne * numberTwo;
+            double RunMultiplicationMethod = multiOne * multiTwo;
 
             return RunMultiplicationMethod;
         }
@@ -245,12 +245,12 @@ namespace Assignment_Calculator
             //This Method creates a Division equation while also checking
             //to see if either numbers contains a 0 before performing the equation.
             Console.Write("\n" + "Enter first number here: ");
-            double numberOne = double.Parse(Console.ReadLine() ?? "");
+            double divisionOne = double.Parse(Console.ReadLine() ?? "");
 
             Console.Write("\n" + "Enter the next number here: ");
-            double numberTwo = double.Parse(Console.ReadLine() ?? "");
+            double divisionTwo = double.Parse(Console.ReadLine() ?? "");
 
-            if (numberOne == 0 || numberTwo == 0)
+            if (divisionOne == 0 || divisionTwo == 0)
             {
                 string divisionError = "";
 
@@ -259,7 +259,7 @@ namespace Assignment_Calculator
             }
             else
             {
-                double RunDivisionMethod = numberOne / numberTwo;
+                double RunDivisionMethod = divisionOne / divisionTwo;
 
                 return RunDivisionMethod;
             }
