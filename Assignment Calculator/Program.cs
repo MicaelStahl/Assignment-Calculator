@@ -17,11 +17,11 @@ namespace Assignment_Calculator
                             //given command through the switch to it's own method that handles the request.
 
                     Console.Write("Enter the operator here  (+, -, *, / or x to exit): ");
-                    string Operator = (Console.ReadLine() ?? "");
+                    char Operator = Console.ReadKey(true).KeyChar;
 
                     switch (Operator)
                     {
-                        case "+": //Addition
+                        case '+': //Addition
                                   // <Summary> //
                                   //Takes first and second numbers here, adds them together, 
                                   //then sends them down to the RunAdditionMethod Method.
@@ -37,7 +37,7 @@ namespace Assignment_Calculator
                             RunAdditionMethod(addAnswer);
                             break;
 
-                        case "-": //Subtraction
+                        case '-': //Subtraction
                                   // <Summary> //
                                   //Takes first and second numbers here, adds them together, 
                                   //then sends them down to the RunAdditionMethod Method.
@@ -52,7 +52,7 @@ namespace Assignment_Calculator
                             RunSubtractionMethod(subAnswer);
                             break;
 
-                        case "*": //Multiplication
+                        case '*': //Multiplication
                                   // <Summary> //
                                   //Sends for a method that makes the wanted multiplication equation and
                                   //Then sends it back up here to write it out in a Console.WriteLine.
@@ -64,7 +64,7 @@ namespace Assignment_Calculator
                             Console.WriteLine("The answer is: " + ResponseMultiplication);
                             break;
 
-                        case "/": //Division
+                        case '/': //Division
                                   // <Summary> //
                                   //Does the same thing as Multiplication does except for one major thing,
                                   //if the response is 0 it will instead send it down to "catch".
@@ -79,17 +79,13 @@ namespace Assignment_Calculator
                             Console.WriteLine("The answer is: " + ResponseDivision);
                             break;
 
-                        case "x": //ShutDown switch
+                        case 'x': //ShutDown switch
                                   // <Summary> //
                                   //If the user presses "x" in previous Console.Write the
                                   //Console will shutdown.
 
                             stayAlive = false;
-                            if (Operator == "x")
-                            {
-                                stayAlive = false;
-                                return;
-                            }
+
                             break;
 
                         default:
@@ -116,17 +112,17 @@ namespace Assignment_Calculator
         {
             //This Method indicates the start of the loop if you wish for it with a switch.
             Console.Write("\n" + "The answer is: " + addAnswer  + ", Would you like to add more numbers? y/n: ");
-            string Operator = (Console.ReadLine() ?? "");
+            char Operator = Console.ReadKey(true).KeyChar;
             switch (Operator)
             {
-                case "n":
-                    if (Operator == "n")
+                case 'n':
+                    if (Operator == 'n')
                     {
                         Console.Clear();
                         return;
                     }
                     break;
-                case "y":
+                case 'y':
                     RunAdditionMethodLoop(addAnswer);
                     break;
             }
@@ -152,10 +148,10 @@ namespace Assignment_Calculator
                 addAnswer = addAnswer + addThree;
 
                 Console.Write("\n" + previousAddAnswer + " + " + addThree + " = " + addAnswer + " Want to add more numbers? y/n: ");
-                string Operator = (Console.ReadLine() ?? "");
+                char Operator = Console.ReadKey(true).KeyChar;
 
                 //here we make i = 1. If the user presses "n" in previous Console.Write. This means that the loop will end.
-                if (Operator == "n")
+                if (Operator == 'n')
                 {
                     i = 1;
                 }
@@ -173,17 +169,17 @@ namespace Assignment_Calculator
         {
             //This Method indicates the start of the loop if you wish for it with a switch.
             Console.Write("\n" + "The answer is: " + subAnswer + " would you like to add more numbers? y/n ");
-            string Operator = (Console.ReadLine() ?? "");
+            char Operator = Console.ReadKey(true).KeyChar;
             switch (Operator)
             {
-                case "n":
-                    if (Operator == "n")
+                case 'n':
+                    if (Operator == 'n')
                     {
                         Console.Clear();
                         return;
                     }
                     break;
-                case "y":
+                case 'y':
                     RunSubtractionMethodLoop(subAnswer);
                     break;
             }
@@ -207,10 +203,10 @@ namespace Assignment_Calculator
                 subAnswer = subAnswer - subThree;
 
                 Console.Write("\n" + previousSubAnswer + " - " + subThree + " = " + subAnswer + ", want to add more numbers? y/n ");
-                string Operator = (Console.ReadLine() ?? "");
+                char Operator = Console.ReadKey(true).KeyChar;
 
                 //here we make i = 1 if the user presses "n" in previous Console.Write. This means that the loop will end.
-                if (Operator == "n")
+                if (Operator == 'n')
                 {
                     i = 1;
                 }
